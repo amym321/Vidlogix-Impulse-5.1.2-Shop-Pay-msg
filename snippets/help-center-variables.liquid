@@ -1,0 +1,39 @@
+{% comment %} variables set on footer links linking to Help Center or Legal page - am {% endcomment %}
+
+<script type="text/javascript">
+
+  function helpCenterLink(mainBlock, subBlock) {
+    // Pass the blocks to be opened in the URL
+    //when mainBlock is empty or incorrect, the correct page may open and open up the subblock but not the main block
+    //when subBlock is empty or incorrect, the main block opens if it was correct, but no subblock opens
+    // so this can all return nothing and the link goes nowhere if the main block is empty or doesn't contain either HC or L
+
+    var help_block = mainBlock || "";
+    var help_sub_block = subBlock || "";
+    console.log('log 130) help_block = '+ help_block);
+
+    var legal = mainBlock.includes('L');
+    var help = mainBlock.includes('HC');
+
+    if (help) {
+      if (help_block != "" && help_sub_block != "") {
+        window.open("/pages/help-center?main_block=" + help_block + "&sub_block=" + help_sub_block, "_self");
+      } else if (help_block != "" && help_sub_block == "") {
+        window.open("/pages/help-center?main_block=" + help_block, "_self");
+      }
+      //else {    // no mainBlock & no subBlock, or has subBlock but no mainBlock
+      //  window.open("/pages/help-center", "_self");
+      // }
+    } else if (legal){
+      if (help_block != "" && help_sub_block != "") {
+        window.open("/pages/legal?main_block=" + help_block + "&sub_block=" + help_sub_block, "_self");
+      } else if (help_block != "" && help_sub_block == "") {
+        window.open("/pages/legal?main_block=" + help_block, "_self");
+      }
+      //else {    // no mainBlock & no subBlock, or has subBlock but no mainBlock
+      //  window.open("/pages/legal", "_self");
+      //}
+    }
+
+  }
+</script>

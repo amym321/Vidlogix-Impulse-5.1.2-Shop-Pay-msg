@@ -1,0 +1,60 @@
+{% comment %} Help Center contact form - am {% endcomment %}
+
+<div class="help-contact-box help-contact-{{display}}">
+  <div class="help-contact-inner">
+    <h3>{{ section.settings.contact-help }}</h3>
+  </div>
+  <div>
+    <svg class="svg-icon" viewBox="0 0 20 20">
+      <path d="M17.388,4.751H2.613c-0.213,0-0.389,0.175-0.389,0.389v9.72c0,0.216,0.175,0.389,0.389,0.389h14.775c0.214,0,0.389-0.173,0.389-0.389v-9.72C17.776,4.926,17.602,4.751,17.388,4.751 M16.448,5.53L10,11.984L3.552,5.53H16.448zM3.002,6.081l3.921,3.925l-3.921,3.925V6.081z M3.56,14.471l3.914-3.916l2.253,2.253c0.153,0.153,0.395,0.153,0.548,0l2.253-2.253l3.913,3.916H3.56z M16.999,13.931l-3.921-3.925l3.921-3.925V13.931z"></path>
+    </svg>
+    <span style="padding-left: 8px;" class="rte help-contact-email">
+      <a href="#" onclick="Beacon('open');" >hello@vidlogix.com</a>
+    </span>
+  </div>
+</div>
+
+<style>
+.help-contact-box {
+  max-width: 300px;
+}
+@media (max-width:1023px) {
+  .help-contact-box {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.help-contact-desktop {
+  background: #f7f7f7;
+  padding: 25px 25px 40px;
+}
+.help-contact-mobile {
+  background: #fff !important;
+  padding: 25px 25px 40px;
+}
+@media (max-width: 1023px) {
+  .help-contact-desktop  {
+    display: none;
+  }
+}
+@media (min-width: 1024px) {
+  .help-contact-desktop  {
+    margin: 110px 0 40px;
+  }
+  .help-contact-mobile  {
+    display: none;
+  }
+}
+.help-contact-box .help-contact-inner {
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+.help-contact-box svg {
+  width: 30px; 
+  transform: translateY(10px);
+}
+.help-contact-box .help-contact-email {
+  padding-left: 8px;
+}
+</style>

@@ -1,0 +1,227 @@
+{% comment %} top mobile (left side) navigation for help center - am {% endcomment %}
+
+{% if block.settings.subheading-1 != empty %}
+  {% assign aria_controls_sub_1 = prefix | append: "-"| append: block.id | append: '-' | append: 1 %}
+{% endif %}
+{% if block.settings.subheading-2 != empty %}
+  {% assign aria_controls_sub_2 = prefix | append: "-"| append: block.id | append: '-' | append: 2 %}
+{% endif %}
+{% if block.settings.subheading-3 != empty %}
+  {% assign aria_controls_sub_3 = prefix | append: "-"| append: block.id | append: '-' | append: 3 %}
+{% endif %}
+{% if block.settings.subheading-4 != empty %}
+  {% assign aria_controls_sub_4 = prefix | append: "-"| append: block.id | append: '-' | append: 4 %}
+{% endif %}
+{% if block.settings.subheading-5 != empty %}
+  {% assign aria_controls_sub_5 = prefix | append: "-"| append: block.id | append: '-' | append: 5 %}
+{% endif %}
+{% if block.settings.subheading-6 != empty %}
+  {% assign aria_controls_sub_6 = prefix | append: "-"| append: block.id | append: '-' | append: 6 %}
+{% endif %}
+{% if block.settings.subheading-7 != empty %}
+  {% assign aria_controls_sub_7 = prefix | append: "-"| append: block.id | append: '-' | append: 7 %}
+{% endif %}
+{% if block.settings.subheading-8 != empty %}
+  {% assign aria_controls_sub_8 = prefix | append: "-"| append: block.id | append: '-' | append: 8 %}
+{% endif %}
+{% if block.settings.subheading-9 != empty %}
+  {% assign aria_controls_sub_9 = prefix | append: "-"| append: block.id | append: '-' | append: 9 %}
+{% endif %}
+{% if block.settings.subheading-10 != empty %}
+  {% assign aria_controls_sub_10 = prefix | append: "-"| append: block.id | append: '-' | append: 10 %}
+{% endif %}
+{% if block.settings.subheading-11 != empty %}
+  {% assign aria_controls_sub_11 = prefix | append: "-"| append: block.id | append: '-' | append: 11 %}
+{% endif %}
+{% if block.settings.subheading-12 != empty %}
+  {% assign aria_controls_sub_12 = prefix | append: "-"| append: block.id | append: '-' | append: 12 %}
+{% endif %}
+{% if block.settings.subheading-13 != empty %}
+  {% assign aria_controls_sub_13 = prefix | append: "-"| append: block.id | append: '-' | append: 13 %}
+{% endif %}
+{% if block.settings.subheading-14 != empty %}
+  {% assign aria_controls_sub_14 = prefix | append: "-"| append: block.id | append: '-' | append: 14 %}
+{% endif %}
+{% if block.settings.subheading-15 != empty %}
+  {% assign aria_controls_sub_15 = prefix | append: "-"| append: block.id | append: '-' | append: 15 %}
+{% endif %}
+{% if block.settings.subheading-16 != empty %}
+  {% assign aria_controls_sub_16 = prefix | append: "-"| append: block.id | append: '-' | append: 16 %}
+{% endif %}
+{% if block.settings.subheading-17 != empty %}
+  {% assign aria_controls_sub_17 = prefix | append: "-"| append: block.id | append: '-' | append: 17 %}
+{% endif %}
+{% if block.settings.subheading-18 != empty %}
+  {% assign aria_controls_sub_18 = prefix | append: "-"| append: block.id | append: '-' | append: 18 %}
+{% endif %}
+{% if block.settings.subheading-19 != empty %}
+  {% assign aria_controls_sub_19 = prefix | append: "-"| append: block.id | append: '-' | append: 19 %}
+{% endif %}
+{% if block.settings.subheading-20 != empty %}
+  {% assign aria_controls_sub_20 = prefix | append: "-"| append: block.id | append: '-' | append: 20 %}
+{% endif %}
+{% if block.settings.subheading-21 != empty %}
+  {% assign aria_controls_sub_21 = prefix | append: "-"|  append: block.id | append: '-' | append: 21 %}
+{% endif %}
+
+<li class="hc-nav-list-item">
+  <h4 class="main-block hc-nav-list-title  collapsible-trigger rte nav-title" aria-controls-mobile="{{main_aria_controls}}-mobile"
+      aria-controls="{{main_aria_controls}}" aria-controls-right="{{main_aria_controls_right}}"
+      data-main-trigger="{{block_id}}">
+      <a itemprop="name" class="subheading-left active-title" style="color:#fff;"><span class="main-title">{{ block_title }}</span></a>
+  </h4>
+  {% comment %} JS gets 1st level title above via id below, then getting previousElementSibling.firstElementChild - am {% endcomment %}
+  <div id="{{main_aria_controls}}-mobile" class="showing hc-subnav-wrapper collapsible-content"
+      itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <ul class="sub-nav-list">
+      {% if block.settings.subheading-1 != empty and block.settings.hide-1 == false %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"  aria-controls="{{aria_controls_sub_1}}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{block.settings.subheading-1}}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-2 != empty  and block.settings.hide-2 == false %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_2 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-2 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-3 != empty and block.settings.hide-3 == false  %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_3 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-3 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-4 != empty and block.settings.hide-4 == false %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_4 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-4 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-5 != empty  and block.settings.hide-5 == false %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_5 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-5 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-6 != empty  and block.settings.hide-6 == false %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_6 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-6 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-7 != empty  and block.settings.hide-7 == false %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_7 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-7 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-8 != empty  and block.settings.hide-8 == false %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_8 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-8 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-9 != empty  and block.settings.hide-9 == false %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_9 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-9 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-10 != empty and block.settings.hide-10 == false  %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_10 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-10 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-11 != empty  and block.settings.hide-11 == false %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_11 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-11 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-12 != empty  and block.settings.hide-12 == false %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_12 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-12 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-13 != empty  and block.settings.hide-13 == false %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_13 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-13 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-14 != empty  and block.settings.hide-14 == false %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_14 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-14 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-15 != empty  and block.settings.hide-15 == false %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_15 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-15 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-16 != empty  and block.settings.hide-16 == false %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_16 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-16 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-17 != empty and block.settings.hide-17 == false  %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_17 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-17 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-18 != empty and block.settings.hide-18 == false  %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_18 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-18 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-19 != empty  and block.settings.hide-19 == false %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_19 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-19 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-20 != empty  and block.settings.hide-20 == false %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_20 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-20 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+      {% if block.settings.subheading-21 != empty  and block.settings.hide-21 == false %}
+        <li class="sub-block sub-nav-list-item collapsible-trigger rte"   aria-controls="{{aria_controls_sub_21 }}">
+          <h4 class="sub-nav-title">
+              <a itemprop="name" class="subheading-left" style="color:#fff;"><span>{{ block.settings.subheading-21 }}</span></a>
+          </h4>
+        </li>
+      {% endif %}
+
+    </ul>
+  </div>
+</li>

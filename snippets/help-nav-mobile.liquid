@@ -1,0 +1,259 @@
+{% comment %} top mobile (left side) navigation for help center - am {% endcomment %}
+
+{% assign help_counter = 1 %}
+{% if template == 'page.faq-help-center' %}
+  {% assign prefix = "HC" %}
+{% endif %}
+{% if template == 'page.faq-legal' %}
+  {% assign prefix = "L" %}
+{% endif %}
+
+
+<div class="help-center-nav">
+
+  <div id="helpCenterNav2">
+    <div  style="position:relative;">
+      <div class="hc-nav-wrapper">
+        <ul class="hc-nav-list">
+
+          {% assign help_counter = 1 %}
+
+          {%- for block in section.blocks -%}
+            {% case block.type %}
+              {% when 'question'%}
+                {% if block.id != empty %}
+                  {% assign block_title = block.settings.title %}
+                  {% assign main_aria_controls = prefix | append: "-left-"| append: block.id  %}
+                  {% assign main_aria_controls_right = prefix | append: "-right-"| append: block.id  %}
+                  {% render 'help-mobile-block', block: block, block_id: block.id, help_counter: help_counter, block_title: block_title,
+                      prefix: prefix, main_aria_controls: main_aria_controls,  main_aria_controls_right: main_aria_controls_right %}
+                {% endif %}
+              {% assign help_counter = help_counter | plus: 1 %}
+            {% endcase %}
+          {%- endfor -%}
+
+          {% comment %} empty sub-nav used as placeholder when no other sub-nav is open - am  {% endcomment %}
+          <li class="sub-nav-dummy">
+            <div class="sub-nav-dummy-div" >
+              <ul class="sub-nav-dummy-list">
+                <li class="sub-nav-dummy-list-item collapsible-trigger"  aria-controls="{{aria_controls_2_sub_1}}">
+                </li>
+              </ul>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<style>
+@media (min-width:1024px){
+  .help-center-nav {
+    display:none;
+  }
+}
+
+/* sticky header */
+.help-center-nav .sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+.help-center-nav .hc-nav-wrapper {
+  background: #171717;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+}
+
+.help-center-nav .hc-nav-list {
+  margin: 0 auto;
+  padding: 0 20px;
+  white-space: nowrap;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center; 
+  list-style: none;
+  transition: opacity .5s cubic-bezier(.25,.46,.45,.94);
+  margin-block-start: 4px;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.help-center-nav .hc-nav-list-item {
+  box-sizing: border-box;
+  height: 50px;
+  padding: 2px 16px 0;
+  display: flex;
+  -webkit-box-align: center; align-items: center;
+  transition:padding .2s cubic-bezier(.25,.46,.45,.94);
+  text-align: -webkit-match-parent;
+}
+
+.help-center-nav .hc-nav-list-title  {
+  margin:unset;
+  font-size: 13px;
+  color: #fff;
+  outline: 0;
+  display: inline-block;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  text-transform: uppercase;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.help-center-nav .hc-subnav-wrapper {
+  height: auto !important;
+  visibility: hidden;
+  position: absolute;
+  background: #808080;
+  top: 55px;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display:flex !important;
+}
+
+
+.help-center-nav  .sub-nav-list {
+  margin: 0 auto;
+  padding: 0 20px;
+  white-space: nowrap;
+  display: flex;
+  -webkit-box-pack: center;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  justify-content: center;
+  list-style: none;
+}
+
+.help-center-nav  .sub-nav-list-item  {
+  margin-bottom:unset;
+  margin-top:unset;
+  cursor:pointer;
+  box-sizing: border-box;
+  height: 50px;
+  padding: 2px 16px 0;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  transition: padding .2s cubic-bezier(.25,.46,.45,.94);
+  text-align: -webkit-match-parent;
+}
+
+.help-center-nav .sub-nav-title {
+  margin:unset;
+  font-size: 13px;
+  color: #fff;
+  outline: 0;
+  display: inline-block;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+}
+
+.help-center-nav  .sub-nav-dummy {
+  box-sizing: border-box;
+  height: 50px;
+  padding: 2px 16px 0;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  transition: padding .2s cubic-bezier(.25,.46,.45,.94);
+  text-align: -webkit-match-parent;
+}
+.help-center-nav  .sub-nav-dummy-div {
+  height: auto;
+  z-index: 1; 
+  position: absolute;
+  background: #808080;
+  top: 55px;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+}
+
+
+.help-center-nav  .sub-nav-dummy-list {
+  margin: 0 auto;
+  padding: 0 20px;
+  white-space: nowrap;
+  display: flex;
+  -webkit-box-pack: center;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  justify-content: center;
+  list-style: none;
+}
+
+.help-center-nav  .sub-nav-dummy-list-item {
+  cursor:pointer;
+  box-sizing: border-box;
+  height: 50px;
+  padding: 2px 16px 0;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;    
+  transition: padding .2s cubic-bezier(.25,.46,.45,.94);
+  text-align: -webkit-match-parent;
+}
+
+
+.help-center-nav .collapsible-trigger {
+  position: unset;
+}
+
+.help-center-nav .is-open {
+  z-index: 5 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display:flex !important;
+}
+
+.help-center-nav .subheading-left,
+.help-center-nav  a  {
+  border-bottom-color: #ffffff00 !important;
+}
+.help-center-nav .active-title {
+  text-decoration: none;
+  border-bottom: 1px solid;
+  position: relative;
+  display: inline-block;
+}
+.help-center-nav .subheading-left:hover {
+  border-bottom: 2px solid;
+  bottom: 1px;
+  /*border-bottom-color: #fff !important;*/
+  position: relative;
+  display: inline-block;
+  -webkit-transition: border-bottom 600ms, border-bottom-color 600ms;
+  transition: border-bottom 600ms, border-bottom-color 600ms;
+}
+
+
+
+
+
+</style>
+

@@ -1,0 +1,158 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "164020623464833959": {
+      "type": "company-tabs",
+      "settings": {
+        "sub_menu_link_list": "company-sub-menu"
+      }
+    },
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow-0": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "Meet Vidlogix",
+            "title_size": 57,
+            "subheading": "",
+            "chat_widget": false,
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_color": "#ffffff",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify:\/\/shop_images\/banner_about.jpg",
+            "overlay_opacity": 0,
+            "focal_point": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "slideshow-0"
+      ],
+      "settings": {
+        "section_height": "650px",
+        "mobile_height": "auto",
+        "parallax": false,
+        "style": "bars",
+        "autoplay": false,
+        "autoplay_speed": 5
+      }
+    },
+    "1640050141300482f2": {
+      "type": "text-and-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/who_img_948da193-f703-4390-95ec-b8bb3d505d44.png",
+        "image_width": 700,
+        "full_width": false,
+        "subtitle": "",
+        "title": "Our Founders",
+        "center_title": true,
+        "text_below": true,
+        "text": "<p>Vidlogix has been loyally serving customers <strong>since 1974<\/strong>. We have experts ready to give courteous service with a phone call or a personal visit. We make the wonders of technology available through our complete lines of Smart Home, Security, Audio\/Visual, & Networking devices, to which we add a wonderful, personal experience.<\/p><p>– Andy and Rich, Co-Founders<\/p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "align_text": "center",
+        "button_chat": false,
+        "button_popup": false,
+        "disclaimer": "",
+        "background_color": "#f2f2f2",
+        "text_color": "",
+        "layout": "bottom",
+        "title_bottom_margin": 95,
+        "image_bottom_margin": 95,
+        "divider": false
+      }
+    },
+    "rich-text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "title": "Our Team"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>Vidlogix is 100% employee-owned. Shares of stock are allocated to employees once a year through our Employee Stock Ownership Plan (ESOP), a Qualified Retirement Plan. We think this is the best way to accomplish our goals for all stakeholders. As employee-owners, we create a workplace that embraces respect, trust, open communication, and personal fulfillment through honest, hard work.<\/p>",
+            "beacon_popup": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "7882cd96-7f20-441c-861a-d3b396675b26": {
+      "type": "hero-video",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "title": "",
+        "title_size": 80,
+        "subheading": "",
+        "link_text": "",
+        "link": "",
+        "color_accent": "rgba(0,0,0,0)",
+        "text_align": "vertical-center horizontal-center",
+        "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/619f2b86eeb0429dbc291bbf729624bb.mp4",
+        "overlay_opacity": 0,
+        "section_height": "100vh",
+        "mobile_height": "100vh"
+      }
+    },
+    "63d66f01-1fa7-4463-8ff1-6075569ca9e7": {
+      "type": "advanced-content",
+      "blocks": {
+        "template--14886801014851__63d66f01-1fa7-4463-8ff1-6075569ca9e7-16836667670bfdad39-1": {
+          "type": "liquid",
+          "settings": {
+            "code": ".",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "template--14886801014851__63d66f01-1fa7-4463-8ff1-6075569ca9e7-16836667670bfdad39-1"
+      ],
+      "custom_css": [
+        "@media (min-width: 769px) {.index-section {margin: 25px 0; }}",
+        "@media (max-width: 768px) {.index-section {display: none; }}"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "164020623464833959",
+    "slideshow",
+    "1640050141300482f2",
+    "rich-text",
+    "7882cd96-7f20-441c-861a-d3b396675b26",
+    "63d66f01-1fa7-4463-8ff1-6075569ca9e7"
+  ]
+}

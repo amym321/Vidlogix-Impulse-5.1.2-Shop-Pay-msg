@@ -1,0 +1,71 @@
+{% comment %} code moved to recently-viewed-snippet for ability to call it from other sections like header - am 
+Calls to this snippet need to quantify the {% endcomment %}
+
+{% assign recent_view_section = true %}
+{% render 'recently-viewed-snippet', recent_count: section.settings.recent_count, recent_view_section: recent_view_section %}
+
+{% style %}
+  .index-section--recently {
+    margin-top: 0;
+  }
+  .index-section--recently .section-header {
+    margin-bottom: 0;
+    text-align: left;
+    padding: 30px 10px;
+  }
+  .index-section--recently .section-header__title {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: var(--typeBasePrimary),var(--typeBaseFallback);
+  }
+
+  @media screen and (min-width: 769px) {
+    .index-section--recently .section-header__title {
+      font-size: 24px;
+    }
+  }
+
+  .index-section--recently .section-header h3 {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .recently-header  {
+      padding: 0;
+    }
+  }
+  .recent-view-section .grid {
+    padding: 0 10px;
+  }
+
+  /* Adjust position to allow for Reviews above Recently Viewed - am. not needed now */
+  /*.recent-view-section {
+    transform: translateY(-70px);
+  }
+  @media screen and (max-width: 768px) {
+    .recent-view-section {
+      transform: translateY(-35px);
+    }
+  }*/
+{% endstyle %}
+
+{% schema %}
+  {
+    "name": "Recently Viewed",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Recently viewed products are only visible when browsing outside of the editor"
+      },
+      {
+        "type": "range",
+        "id": "recent_count",
+        "label": "Number of recent products",
+        "default": 4,
+        "min": 2,
+        "max": 10,
+        "step": 1
+      }
+    ]
+  }
+{% endschema %}

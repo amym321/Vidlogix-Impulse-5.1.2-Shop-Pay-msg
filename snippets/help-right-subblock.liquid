@@ -1,0 +1,18 @@
+{% if template == 'page.faq-help-center' %}
+  {% assign prefix = "HC" %}
+{% endif %}
+{% if template == 'page.faq-legal' %}
+  {% assign prefix = "L" %}
+{% endif %}
+
+<div class="{% if sub_hide %} hide {% endif %} faq-section">
+  <button style="padding: 11px 0 30px;" type="button" class="sub-block collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left"  aria-controls="{{prefix}}-{{ block_id }}-{{sub_block}}">
+    {%- render 'collapsible-icons-alt', no_circle: true -%}
+    <h3 style="margin-top: 0; margin-bottom: 0;"><span>{{ sub_heading}}</span></h3>
+  </button>
+  <div id="{{prefix}}-{{ block_id }}-{{ sub_block }}" class="collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div class="collapsible-content__inner collapsible-content__inner--faq rte" style="padding-top:0;" itemprop="text">
+      {{ sub_text }}
+    </div>
+  </div>
+</div>

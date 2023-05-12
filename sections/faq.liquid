@@ -1,0 +1,249 @@
+{% comment %} code change per 4.1.1 customization {% endcomment %}
+{%- if section.settings.divider -%}<div class="section--divider">{%- endif -%}
+
+  <Div class="{% unless template == 'page.terms' %} index-section {% endunless %}">
+  
+    <div class="page-width page-width--narrow ">
+  
+      {%- if section.settings.title != blank -%}
+        <header class="section-header">
+          <h2 class="section-header__title">
+            {{ section.settings.title | escape }}
+          </h2>
+        </header>
+      {%- endif -%}
+  
+      {%- if section.blocks.size > 0 -%}
+        {%- for block in section.blocks -%}
+  
+        {% comment %} UPS Map popup - am {% endcomment %}
+        {% render 'map-popup' %}
+  
+          <div {{ block.shopify_attributes }}>
+            {% case block.type %}
+  
+              {% when 'rich-text'%}
+                <div class=" {% unless template == 'page.terms' %} index-section {% endunless %} index-section--faq">
+                  <div class="text-{{ block.settings.align_text }}">
+                    {%- if block.settings.title != blank -%}
+                      <div class="section-header">
+                        <h2 class=" section-header__title">
+                          {{ block.settings.title | escape }}
+                        </h2>
+                      </div>
+                    {%- endif -%}
+                    {%- if block.settings.text != blank -%}
+                      <div class="rte">
+                        {%- if block.settings.enlarge_text %}<div class="enlarge-text">{% endif -%}
+                          {{ block.settings.text }}
+                        {%- if block.settings.enlarge_text %}</div>{% endif -%}
+                      </div>
+  
+                      {% if block.settings.button_chat %}
+                      <a href="/pages\/contact"  class="btn">
+                        {{ block.settings.button_text }}
+                      </a>
+                    {% elsif block.settings.button_link != blank %}
+                        <a class="btn" href="{{ block.settings.button_link }}" class="button">{{ block.settings.button_text }}</a>
+                      {% endif %}
+  
+                    {%- endif -%}
+  
+                  </div>
+                </div>
+  
+              {% when 'question'%}
+                <div class="faq-section" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                  <div id="{% if block.settings.anchor_link != empty %}{{ block.settings.anchor_link }}{% endif %}"></div>
+                  {% comment %} <div id="{% if block.id contains "55d786e9-0268-406d-a7cd-57aba1658506" %}email-link{% endif %}"></div> {% endcomment %}
+                  <button type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ block.id }}">
+                    {%- render 'collapsible-icons-alt', no_circle: true -%}
+                    <span itemprop="name">{{ block.settings.title }}</span>
+                  </button>
+                  <div id="FAQ-content-{{ block.id }}" class="collapsible-content collapsible-content--all" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div class="collapsible-content__inner collapsible-content__inner--faq rte" itemprop="text">
+                     {% comment %} UPS Map popup - am {% endcomment %}
+                      {% if block.settings.map_popup %}
+                        {% if block.settings.map_text != empty %}
+                          {% comment %} custom coded popup - am {% endcomment %}
+                          <a id="map-btn" class="" style="cursor: pointer;">{{ block.settings.map_text }}</a> 
+                        {% else %}
+                          {% comment %} Help Scout Beacon popup - am {% endcomment %}
+                          <a href="#" data-beacon-article-modal="62c84d1ad242501d78c628c3">UPS Time in Transit Map</a>
+                        {% endif %}
+                      {% endif %}
+                      {{ block.settings.text }}
+                        {% comment %} code added - am. added more text & button to question block{% endcomment %}
+                        {% if block.settings.button_chat2  %}
+                        <a href="/pages\/contact" class="btn">
+                          {{ block.settings.button_text2 }}
+                        </a>
+                      {% elsif block.settings.button_link2 != blank %}
+                        <a class="btn" href="{{ block.settings.button_link2 }}" class="button">
+                          {{ block.settings.button_text2 }}
+                        </a>
+                      {% endif %}
+                      {% if block.settings.text2 %}{{ block.settings.text2 }}{% endif %}
+                    </div>
+  
+                  </div>
+                </div>
+            {% endcase %}
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+  
+      {%- if section.blocks.size == 0 -%}
+        <div class="placeholder-noblocks">
+          {{ 'home_page.onboarding.no_content' | t }}
+        </div>
+      {%- endif -%}
+    </div>
+  </Div>
+  
+  {%- if section.settings.divider -%}</div>{%- endif -%}
+  
+  {% schema %}
+    {
+      "name": "FAQ",
+      "class": "nothing",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "FAQs"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "rich-text",
+          "name": "Rich text",
+          "settings": [
+            {
+              "type": "text",
+              "id": "title",
+              "label": "Title",
+              "default": "Rich text"
+            },
+            {
+              "type": "richtext",
+              "id": "text",
+              "label": "Text",
+              "default": "<p>Use this section for any descriptive text you need to fill out your pages or to add introductory headings between other blocks.</p>"
+            },
+            
+            {
+              "type": "url",
+              "id": "button_link",
+              "label": "Button link"
+            },
+            {
+              "type": "text",
+              "id": "button_text",
+              "label": "Button text",
+              "default": "Button Text"
+            },
+            {
+              "type": "checkbox",
+              "id": "button_chat",
+              "label": "Button launches chat widget. Defaults to Contact page for now",
+              "default": false
+            },
+            {
+              "type": "select",
+              "id": "align_text",
+              "label": "Text alignment",
+              "default": "left",
+              "options": [
+                {
+                  "value": "left",
+                  "label": "Left"
+                },
+                {
+                  "value": "center",
+                  "label": "Centered"
+                },
+                {
+                  "value": "right",
+                  "label": "Right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "question",
+          "name": "Question",
+          "settings": [
+            {
+              "type": "text",
+              "id": "title",
+              "label": "Question",
+              "default": "Frequently asked question"
+            },
+            {
+              "type": "checkbox",
+              "id": "map_popup",
+              "label": "Link opens UPS map popup.",
+              "default": false
+            },
+            {
+              "type": "richtext",
+              "id": "map_text",
+              "label": "Map Popup Text",
+              "default": "<p></p>",
+              "info": "Empty text opens Beacon popup. Entered text opens custom popup."
+            },
+
+            {
+              "type": "richtext",
+              "id": "text",
+              "label": "Text Response",
+              "default": "<p>Use the text to answer questions</p>"
+            },
+            {
+              "type": "url",
+              "id": "button_link2",
+              "label": "Button link"
+            },
+            {
+              "type": "text",
+              "id": "button_text2",
+              "label": "Button text",
+              "default": "Button text"
+            },
+            {
+              "type": "checkbox",
+              "id": "button_chat2",
+              "label": "Button launches chat widget. Defaults to Contact page for now",
+              "default": false
+            },
+            {
+              "type": "richtext",
+              "id": "text2",
+              "label": "Text Response",
+              "default": "<p>Use the text to answer questions</p>"
+            },
+            {
+              "type": "text",
+              "id": "anchor_link",
+              "label": "Anchor link keyword"
+            }
+          ]
+        }
+      ],
+      "presets": [{
+        "name": "FAQ",
+        "blocks": [
+          {
+            "type": "question"
+          },
+          {
+            "type": "question"
+          }
+        ]
+      }]
+    }
+  {% endschema %}
+  
