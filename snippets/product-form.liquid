@@ -2,9 +2,6 @@
 
 {%- form 'product', product, id: form_id, class: 'product-single__form ' -%}
 
-  {% comment %} Shop Pay message. Added another form so message displays - am  {% endcomment %}
-  <div class="shopify-payment-terms product__policies">{{ form | payment_terms }}</div>
-
 
   {%- liquid
     assign enable_dynamic_buttons = false
